@@ -1,3 +1,13 @@
-/* 
-    General Styles
-*/
+.avatarImg{
+    width: 150px;
+    height: auto;
+}
+.actionButtons{
+    
+    background-color: inherit;
+    border: none;
+    
+}
+.actionButtons:hover{
+    scale: 1.5;
+}
