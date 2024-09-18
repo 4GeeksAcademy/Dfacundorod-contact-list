@@ -18,6 +18,7 @@ const Layout = () => {
 				<Routes>
 					<Route path="/" element={<CardContact/>}/>
 					<Route path="/new-contact-form" element={<NewContactForm />}/>
+					<Route path="/new-contact-form/:id" element={<NewContactForm />}/>
 				</Routes>
 			</BrowserRouter>
 		</div>

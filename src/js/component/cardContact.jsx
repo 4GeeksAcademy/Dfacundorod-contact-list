@@ -32,7 +32,7 @@ export const CardContact = ()=>{
                                 <p className="card-text"><FontAwesomeIcon icon={faEnvelope} className="mx-1"/>{contact.email}</p>
                         </div>                        
                         <div className="col-2 d-flex h-25 mt-3 ms-2 gap-3">
-                            <Link to="/new-contact-form" className="actionButtons text-black" onClick={editContact}><FontAwesomeIcon icon={faPen} /></Link>
+                            <Link to={`/new-contact-form/${contact.id}`} className="actionButtons text-black" onClick={editContact}><FontAwesomeIcon icon={faPen} /></Link>
                             <button className="actionButtons" onClick={()=>{actions.deleteContact(contact.id)}}><FontAwesomeIcon icon={faTrash} /></button>
                         </div>
                     </div>

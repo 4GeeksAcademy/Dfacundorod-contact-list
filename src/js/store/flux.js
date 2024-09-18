@@ -75,19 +75,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 				})
 			},
-			addNewContact:(e)=>{
-				e.preventDefault();
-				let bodyRequest ={
-					"name": `${e.target[0].value}`,
-					"email": `${e.target[1].value}`,
-					"phone": `${e.target[2].value}`,
-					"address": `${e.target[3].value}`
-				  };
-				console.log(e)
+			addNewContact:(dataTosend)=>{
 				fetch('https://playground.4geeks.com/contact/agendas/Facundo/contacts',{
 					method: 'POST',
 					headers:{'Content-Type': 'application/json'},
-					body:JSON.stringify(bodyRequest),
+					body:JSON.stringify(dataTosend),
 				}).then(resp=>resp.json())
 				.then(data=>{
 					console.log(`se agrego `, data);
@@ -100,6 +92,16 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore( {contacts: data.contacts})
 					})
 				})
+			},
+			editContact: async(id, dataTosend)=>{
+				const resp = await fetch(`https://playground.4geeks.com/contact/agendas/Facundo/contacts/${id}`,{
+					method:'PUT',
+					headers:{'Content-Type': 'application/json'},
+					body:JSON.stringify(dataTosend)
+				})
+				const data = resp.json()
+				console.log(`se actualizo correctamente` , data);
+				getActions().getApi()
 			}
 
 
